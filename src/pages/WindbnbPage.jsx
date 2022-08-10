@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import FilterModal from "../components/Filter/FilterModal";
 import Header from "../components/Header/Header";
+import LocationList from "../components/Locations/LocationList";
 import Locations from "../components/Locations/Locations";
 import FilterModalWrapper from "../components/UI/FilterModalWrapper";
+import LocationListWrapper from "../components/UI/LocationListWrapper";
 import Modal from "../components/UI/Modal";
 import WindbnbPageWrapper from "../components/UI/WindbnbPageWrapper";
 
@@ -19,6 +21,9 @@ const WindbnbPage = () => {
         <Modal toggle={toggleModal}>
           <FilterModalWrapper>
             <FilterModal />
+            <LocationListWrapper>
+              <LocationList/>
+            </LocationListWrapper>
           </FilterModalWrapper>
         </Modal>
       )}
