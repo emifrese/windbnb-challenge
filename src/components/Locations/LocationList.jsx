@@ -12,7 +12,7 @@ const LocationList = () => {
     }
 
   return (
-    <ul>{contentList}</ul>
+    <ul className={classes.locationList}>{contentList}</ul>
   )
 }
 

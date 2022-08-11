@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FilterModal from "../components/Filter/FilterModal";
+import GuestEditor from "../components/Guest/GuestEditor";
 import Header from "../components/Header/Header";
 import LocationList from "../components/Locations/LocationList";
 import Locations from "../components/Locations/Locations";
@@ -23,6 +24,7 @@ const WindbnbPage = () => {
             <FilterModal />
             <LocationListWrapper>
               <LocationList/>
+              <GuestEditor/>
             </LocationListWrapper>
           </FilterModalWrapper>
         </Modal>

@@ -1,0 +1,23 @@
+.locationListItem {
+    margin-bottom: 34px;
+}
+
+.imgContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.imgContainer img {
+    width: 22px;
+}
+
+.imgContainer figcaption {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4f4f4f;
+    padding-left: 10px;
+}

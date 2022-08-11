@@ -4,7 +4,7 @@ import classes from './LocationListWrapper.module.css'
 
 const LocationListWrapper = ({children}) => {
   return (
-    <div>{children}</div>
+    <div className={classes.listContainer}>{children}</div>
   )
 }
 
