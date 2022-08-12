@@ -89,3 +89,29 @@
     padding: 10px;
     padding-top: 0;
 }
+
+
+@media only screen and (max-width: 375px) {
+    .locationInfo button {
+        width: 88px;
+    }
+
+    .locationInfo p {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .locationInfo figure img {
+        width: 16px;
+    }
+
+    .locationInfo figcaption {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .locationDescription {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

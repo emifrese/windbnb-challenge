@@ -1,4 +1,6 @@
 .guestEditor {
     display: flex;
+    flex-wrap: wrap;
     width: 50%;
+    padding-left: 14px;
 }

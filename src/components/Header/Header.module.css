@@ -4,3 +4,17 @@
     justify-content: space-between;
     margin-bottom: 60px;
 }
+
+@media only screen and (max-width: 375px) {
+    .container {
+        flex-wrap: wrap;
+        margin-bottom: 37px;
+        justify-content: center;
+    }
+    
+    .container figure {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 37px;
+    }
+}

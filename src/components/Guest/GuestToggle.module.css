@@ -1,0 +1,55 @@
+.guestToggle {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.guestToggle h3, .guestToggle p, .inputContainer {
+    width: 100%;
+}
+
+.guestToggle h3, .guestToggle p {
+    font-family: 'Mulish';
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.guestToggle h3 {
+    color: #333333;
+    font-weight: 700;
+}
+
+.guestToggle p {
+    color: #bdbdbd;
+    font-weight: 400
+}
+
+.inputContainer {
+    margin-top: 12px;
+    margin-bottom: 52px;
+}
+
+.inputContainer button {
+    cursor: pointer;
+    width: 23px;
+    height: 23px;
+    border: 1px solid #828282;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.inputContainer input {
+    width: 40px;
+    border: none;
+    text-align: center;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.inputContainer input:focus {
+    outline: none
+}

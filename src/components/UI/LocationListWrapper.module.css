@@ -1,7 +1,6 @@
 .listContainer {
     display: flex;
-    width: 100%;
+    width: 70%;
     flex-wrap: wrap;
     padding-top: 40px;
-    padding-left: 26px;
 }
