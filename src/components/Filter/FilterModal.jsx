@@ -2,77 +2,98 @@ import React, { useState } from "react";
 
 import classes from "./FilterModal.module.css";
 
-import searchImg from "../../assets/search_FILL0_wght400_GRAD0_opsz48.svg";
-import { useEffect } from "react";
+import closeImg from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
+import SearchButton from "../UI/SearchButton";
 
-const FilterModal = () => {
-  const [focusInput, setFocusInput] = useState("Location");
 
-  const [isMobile, setIsMobile] = useState(false);
+const FilterModal = ({focusInput, setFocusInput, isMobile}) => {
 
-  useEffect(() => {
-    if (window.innerWidth <= 375) {
-      setIsMobile((prevState) => {
-        if(!prevState) {
-          return true
-        } else {
-          return prevState
+
+  const content = isMobile ? (
+    <>
+      <figure className={classes.headerModal}>
+        <figcaption>Edit your search</figcaption>
+        <img src={closeImg} alt="cross" />
+      </figure>
+      <div className={classes.filterContainer}>
+        <div
+          className={classes.locationContainer}
+          style={
+            focusInput === "Location"
+              ? {
+                  borderWidth: "1px",
+                  borderColor: "#333333",
+                  borderStyle: "solid",
+                  borderRadius: "16px",
+                }
+              : {}
+          }
+          onClick={() => setFocusInput("Location")}
+        >
+          <h3>LOCATION</h3>
+          <input
+            className={classes.locationInput}
+            value={"Helsinki, Finland"}
+          />
+        </div>
+        <div
+          className={classes.guestContainer}
+          style={
+            focusInput === "Guest"
+              ? {
+                  borderWidth: "1px",
+                  borderColor: "#333333",
+                  borderStyle: "solid",
+                  borderRadius: "16px",
+                }
+              : {}
+          }
+          onClick={() => setFocusInput("Guest")}
+        >
+          <h3>GUEST</h3>
+          <input className={classes.guestInput} placeholder={"Add guests"} />
+        </div>
+      </div>
+    </>
+  ) : (
+    <div className={classes.filterContainer}>
+      <div
+        className={classes.locationContainer}
+        style={
+          focusInput === "Location"
+            ? {
+                borderWidth: "1px",
+                borderColor: "#333333",
+                borderStyle: "solid",
+                borderRadius: "16px",
+              }
+            : {}
         }
-      });
-    } else {
-      setIsMobile((prevState) => {
-        if (prevState) {
-          return false;
-        } else {
-          return prevState
+        onClick={() => setFocusInput("Location")}
+      >
+        <h3>LOCATION</h3>
+        <input className={classes.locationInput} value={"Helsinki, Finland"} />
+      </div>
+      <div
+        className={classes.guestContainer}
+        style={
+          focusInput === "Guest"
+            ? {
+                borderWidth: "1px",
+                borderColor: "#333333",
+                borderStyle: "solid",
+                borderRadius: "16px",
+              }
+            : {}
         }
-      });
-    }
-  }, []);
-
-
-  const content = isMobile ? (<p>Mobile</p>) : (<div className={classes.filterContainer}>
-    <div
-      className={classes.locationContainer}
-      style={
-        focusInput === "Location"
-          ? {
-              borderWidth: "1px",
-              borderColor: "#333333",
-              borderStyle: "solid",
-              borderRadius: "16px",
-            }
-          : {}
-      }
-      onClick={() => setFocusInput("Location")}
-    >
-      <h3>LOCATION</h3>
-      <input className={classes.locationInput} value={"Helsinki, Finland"} />
+        onClick={() => setFocusInput("Guest")}
+      >
+        <h3>GUEST</h3>
+        <input className={classes.guestInput} placeholder={"Add guests"} />
+      </div>
+      <SearchButton />
     </div>
-    <div
-      className={classes.guestContainer}
-      style={
-        focusInput === "Guest"
-          ? {
-              borderWidth: "1px",
-              borderColor: "#333333",
-              borderStyle: "solid",
-              borderRadius: "16px",
-            }
-          : {}
-      }
-      onClick={() => setFocusInput("Guest")}
-    >
-      <h3>GUEST</h3>
-      <input className={classes.guestInput} placeholder={"Add guests"} />
-    </div>
-    <div className={classes.searchContainer}>
-      <button className={classes.searchButton}>
-        <img className={classes.searchImg} src={searchImg} alt="search" />
-        <p>Search</p>
-      </button>
-    </div>
-  </div>)
+  );
 
   return content;
 };
