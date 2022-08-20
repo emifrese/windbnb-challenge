@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useContext } from "react";
 
-import classes from './LocationList.module.css'
-import LocationListItem from './LocationListItem';
+import classes from "./LocationList.module.css";
+import LocationListItem from "./LocationListItem";
+
+import { places } from "../../helpers/variables";
+import SearchContext from "../../store/search-context";
 
 const LocationList = () => {
+  const searchCtx = useContext(SearchContext);
 
-    let contentList = [];
-
-    for(let i=0; i < 2; i++){
-        contentList.push(<LocationListItem />)
+  let location;
+  let country;
+  if (searchCtx.place.length >= 3) {
+    for (let place of places) {
+      console.log(searchCtx.place.length)
+      if (searchCtx.place.toLocaleLowerCase() === place.country.substr(0, searchCtx.place.length).toLocaleLowerCase()) {
+        location = place.cities;
+        country = place.country;
+      }
     }
+  }
 
-  return (
-    <ul className={classes.locationList}>{contentList}</ul>
-  )
-}
+  let contentList = [];
+  console.log(location)
 
-export default LocationList
+  if(location){
+    for (let city of location) {
+      contentList.push(<LocationListItem city={city} country={country} />);
+    }
+  }
+
+  return <ul className={classes.locationList}>{contentList}</ul>;
+};
+
+export default LocationList;

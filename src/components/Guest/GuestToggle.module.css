@@ -53,3 +53,10 @@
 .inputContainer input:focus {
     outline: none
 }
+
+@media only screen and (max-width: 375px) {
+    .guestToggle {
+        width: 50%;
+        text-align: center;
+    }
+}

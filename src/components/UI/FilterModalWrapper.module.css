@@ -13,8 +13,8 @@
         margin-bottom: 24px;
         margin-right: 12px;
         margin-left: 12px;
-        flex-direction: column;
         justify-content: space-between;
+        align-content: space-between;
         height: 88%;
     }  
 }

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import SearchContext from "../../store/search-context";
 
 import classes from "./GuestToggle.module.css";
 
 const GuestToggle = ({ type }) => {
   const [quantity, setQuantity] = useState(0);
+
+  const searchCtx = useContext(SearchContext);
+
+  const inputValue = type === "Adult" ? searchCtx.guests.adults : searchCtx.guests.children;
 
   return (
     <div className={classes.guestToggle}>
@@ -15,6 +20,11 @@ const GuestToggle = ({ type }) => {
           onClick={() =>
             setQuantity((prevState) => {
               if (prevState > 0) {
+                if (type === "Adult") {
+                  searchCtx.editGuests({ adults: prevState - 1 });
+                } else {
+                  searchCtx.editGuests({ children: prevState - 1 });
+                }
                 return prevState - 1;
               } else {
                 return prevState;
@@ -24,10 +34,17 @@ const GuestToggle = ({ type }) => {
         >
           -
         </button>
-        <input value={quantity} />
+        <input value={inputValue} />
         <button
           onClick={() =>
-            setQuantity((prevState) => prevState + 1)
+            setQuantity((prevState) => {
+              if (type === "Adult") {
+                searchCtx.editGuests({ adults: prevState + 1 });
+              } else {
+                searchCtx.editGuests({ children: prevState + 1 });
+              }
+              return prevState + 1;
+            })
           }
         >
           +

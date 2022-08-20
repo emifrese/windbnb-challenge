@@ -1,5 +1,6 @@
 .locationListItem {
     margin-bottom: 34px;
+    cursor: pointer;
 }
 
 .imgContainer {

@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import classes from "./FilterModal.module.css";
 
 import closeImg from "../../assets/close_FILL0_wght400_GRAD0_opsz48.svg";
 import SearchButton from "../UI/SearchButton";
+import SearchContext from "../../store/search-context";
 
+const FilterModal = ({ focusInput, setFocusInput, isMobile, toggle }) => {
+  const searchCtx = useContext(SearchContext);
 
-const FilterModal = ({focusInput, setFocusInput, isMobile}) => {
-
+  
+  const guestValue =
+    searchCtx.guests.adults > 0 || searchCtx.guests.children > 0
+      ? `${searchCtx.guests.adults} Adults, ${searchCtx.guests.children} Children`
+      : "";
 
   const content = isMobile ? (
     <>
       <figure className={classes.headerModal}>
         <figcaption>Edit your search</figcaption>
-        <img src={closeImg} alt="cross" />
+        <img src={closeImg} alt="cross" onClick={() => toggle()} />
       </figure>
       <div className={classes.filterContainer}>
         <div
@@ -33,7 +39,8 @@ const FilterModal = ({focusInput, setFocusInput, isMobile}) => {
           <h3>LOCATION</h3>
           <input
             className={classes.locationInput}
-            value={"Helsinki, Finland"}
+            value={searchCtx.place}
+            onChange={(e) => searchCtx.editPlace(e.target.value)}
           />
         </div>
         <div
@@ -72,7 +79,11 @@ const FilterModal = ({focusInput, setFocusInput, isMobile}) => {
         onClick={() => setFocusInput("Location")}
       >
         <h3>LOCATION</h3>
-        <input className={classes.locationInput} value={"Helsinki, Finland"} />
+        <input
+          className={classes.locationInput}
+          value={searchCtx.place}
+          onChange={(e) => searchCtx.editPlace(e.target.value)}
+        />
       </div>
       <div
         className={classes.guestContainer}
@@ -89,7 +100,11 @@ const FilterModal = ({focusInput, setFocusInput, isMobile}) => {
         onClick={() => setFocusInput("Guest")}
       >
         <h3>GUEST</h3>
-        <input className={classes.guestInput} placeholder={"Add guests"} />
+        <input
+          className={classes.guestInput}
+          value={guestValue}
+          placeholder={"Add guests"}
+        />
       </div>
       <SearchButton />
     </div>

@@ -4,3 +4,10 @@
     width: 50%;
     padding-left: 14px;
 }
+
+@media only screen and (max-width: 375px) {
+    .guestEditor {
+        width: 100%;
+        justify-content: space-between
+    }
+}

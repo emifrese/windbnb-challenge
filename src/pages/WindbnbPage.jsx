@@ -57,6 +57,7 @@ const WindbnbPage = () => {
               focusInput={focusInput}
               setFocusInput={toggleInput}
               isMobile={isMobile}
+              toggle={toggleModal}
             />
             <LocationListWrapper>
               {!isMobile ? (
@@ -68,7 +69,7 @@ const WindbnbPage = () => {
                 content
               )}
             </LocationListWrapper>
-            <SearchButton/>
+            {isMobile && <SearchButton />}
           </FilterModalWrapper>
         </Modal>
       )}

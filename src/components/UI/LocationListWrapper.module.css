@@ -8,5 +8,6 @@
 @media only screen and (max-width: 375px) {
     .listContainer {
         padding-top: 35px;
+        width: 100%;
     }
 }

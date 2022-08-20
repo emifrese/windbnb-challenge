@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import classes from "./Locations.module.css";
 
 import { locations } from "../../helpers/variables";
 
 import LocationItem from "./LocationItem";
+import SearchContext from "../../store/search-context";
 
 const Locations = () => {
-  const locationsDisplay = [];
+
+  const searchCtx = useContext(SearchContext)
+
+  const locationsDisplay = searchCtx.showedLocations;
 
   for (let location of locations) {
     locationsDisplay.push(
