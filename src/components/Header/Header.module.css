@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 60px;
 }
 
@@ -12,7 +13,7 @@
         justify-content: center;
     }
     
-    .container figure {
+    .logo {
         width: 100%;
         text-align: left;
         margin-bottom: 37px;

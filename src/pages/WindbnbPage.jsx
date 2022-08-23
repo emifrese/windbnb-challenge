@@ -69,7 +69,7 @@ const WindbnbPage = () => {
                 content
               )}
             </LocationListWrapper>
-            {isMobile && <SearchButton />}
+            {isMobile && <SearchButton toggle={toggleModal}/>}
           </FilterModalWrapper>
         </Modal>
       )}

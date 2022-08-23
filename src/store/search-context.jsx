@@ -6,6 +6,7 @@ const SearchContext = React.createContext({
   guests: { adults: 0, children: 0 },
   place: "",
   showedLocations: [],
+  stays: 0,
   editGuests: ({ adults, children }) => {},
   editPlace: (place) => {},
   filterLocations: (city, country) => {},
@@ -41,16 +42,20 @@ export const SearchContextProvider = ({ children }) => {
         }
       }
       setLocationsShow(showedLocations)
+    } else if(city === 'Restart'){
+      setLocationsShow(locations)
     }
+
   }
 
   const contextValue = {
     guests: guestInput,
     place: placeInput,
     showedLocations: locationsShow,
+    stays: locationsShow.length,
     editGuests: editGuestsHandler,
     editPlace: editPlaceHandler,
-    filterLocationHandler: filterLocationHandler
+    filterLocations: filterLocationHandler
   };
 
   return (

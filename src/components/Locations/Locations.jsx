@@ -2,19 +2,20 @@ import React, { useContext } from "react";
 
 import classes from "./Locations.module.css";
 
-import { locations } from "../../helpers/variables";
-
 import LocationItem from "./LocationItem";
 import SearchContext from "../../store/search-context";
 
 const Locations = () => {
 
   const searchCtx = useContext(SearchContext)
+  console.log(searchCtx.stays)
 
   const locationsDisplay = searchCtx.showedLocations;
 
-  for (let location of locations) {
-    locationsDisplay.push(
+  const locationRender = [];
+
+  for (let location of locationsDisplay) {
+    locationRender.push(
       <LocationItem
         key={location.id}
         img={location.img}
@@ -30,9 +31,9 @@ const Locations = () => {
     <div className={classes.locationPageContainer}>
       <div className={classes.locationHeaderContainer}>
         <h2 className={classes.locationSearch}>Stays in Finland</h2>
-        <p>+12 stays</p>
+        <p>{searchCtx.stays} stay{searchCtx.stays > 1 && "s"}</p>
       </div>
-      <div className={classes.locationsContainer}>{locationsDisplay}</div>
+      <div className={classes.locationsContainer}>{locationRender}</div>
     </div>
   );
 };

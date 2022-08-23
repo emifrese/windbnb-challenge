@@ -106,7 +106,7 @@ const FilterModal = ({ focusInput, setFocusInput, isMobile, toggle }) => {
           placeholder={"Add guests"}
         />
       </div>
-      <SearchButton />
+      <SearchButton toggle={toggle}/>
     </div>
   );
 
